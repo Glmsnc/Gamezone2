@@ -1,0 +1,88 @@
+CREATE DATABASE bdLoja
+
+USE bdLoja
+
+CREATE TABLE tbGenero(
+	 idGenero INT PRIMARY KEY IDENTITY(1,1)
+	,descricaoGenero VARCHAR(255) NOT NULL
+)
+
+CREATE TABLE tbPlataforma(
+	 idPlataforma INT PRIMARY KEY IDENTITY(1,1)
+	,descricaoPlataforma VARCHAR(255)  NOT NULL
+)
+
+CREATE TABLE tbDistribuidora(
+	 idDistribuidora INT PRIMARY KEY IDENTITY(1,1)
+	,descricaoDistribuidora VARCHAR(255) NOT NULL
+)
+
+
+CREATE TABLE tbJogo(
+	 idJogo INT PRIMARY KEY IDENTITY(1,1)
+	,nomeJogo VARCHAR(70) NOT NULL
+	,descricaoJogo VARCHAR(255) NOT NULL
+	,idGenero INT FOREIGN KEY REFERENCES tbGenero(idGenero) NOT NULL
+	,idPlataforma INT FOREIGN KEY REFERENCES tbGenero(idGenero) NOT NULL
+	,idDistribuidora INT FOREIGN KEY REFERENCES tbDistribuidora(idDistribuidora) NOT NULL
+	,valorJogo SMALLMONEY NOT NULL
+	,ClassificacaoJogo INT NOT NULL
+	,tamanhoGBJogo FLOAT NOT NULL
+	,qtdEstoqueJogo INT NOT NULL
+)
+
+CREATE TABLE tbNivelUsuario(
+	 idNivelUsuario INT PRIMARY KEY IDENTITY(1,1)
+	,descricaoNivelUsuario VARCHAR(255) NOT NULL
+)
+
+CREATE TABLE tbCargoFuncionario(
+	 idCargoFuncionario INT PRIMARY KEY IDENTITY(1,1)
+	,descricaoCargoFuncionario VARCHAR(255) NOT NULL
+)
+
+CREATE TABLE tbFuncionario(
+	 idFuncionario INT PRIMARY KEY IDENTITY(1,1)
+	,nomeFuncionario VARCHAR(255) NOT NULL
+	,cpfFuncionario VARCHAR(14) NOT NULL
+	,idCargoFuncionario INT FOREIGN KEY REFERENCES tbCargoFuncionario(idCargoFuncionario)
+)
+
+CREATE TABLE tbUsuario(
+	 idUsuario INT PRIMARY KEY IDENTITY(1,1)
+	,loginUsuario VARCHAR(15) NOT NULL
+	,senhaUsuario VARCHAR(15) NOT NULL
+	,idNivelUsuario INT FOREIGN KEY REFERENCES tbNivelUsuario(idNivelUsuario) NOT NULL
+	,idFuncionario INT FOREIGN KEY REFERENCES tbFuncionario(idFuncionario) NOT NULL
+)
+
+INSERT INTO tbCargoFuncionario(descricaoCargoFuncionario)
+VALUES('Administrador')
+
+INSERT INTO tbFuncionario(nomeFuncionario,cpfFuncionario,idCargoFuncionario)
+VALUES ('Washington de Almeida Coelho','469.223.789-71',1)
+
+INSERT INTO tbNivelUsuario(descricaoNivelUsuario)
+VALUES('Administrador')
+
+INSERT INTO tbNivelUsuario(descricaoNivelUsuario)
+VALUES('Estoque')
+
+
+INSERT INTO tbUsuario(loginUsuario,senhaUsuario,idNivelUsuario,idFuncionario)
+VALUES('washington','was12345',1,1)
+
+INSERT INTO tbUsuario(loginUsuario,senhaUsuario,idNivelUsuario,idFuncionario)
+VALUES('washblack','12345',2,1)
+
+SELECT * FROM tbNivelUsuario
+
+/*SELECT * FROM tbUsuario WHERE loginUsuario COLLATE Latin1_General_CS_AS = 'washington' COLLATE Latin1_General_CS_AS
+AND senhaUsuario COLLATE Latin1_General_CS_AS = 'was12345' COLLATE Latin1_General_CS_AS
+/*COLLATE Latin1_General_CS_AS  Serve para a pesquisa usar case sensitive*/ */
+
+SELECT * FROM tbUsuario U INNER JOIN tbFuncionario F ON U.idFuncionario = F.idFuncionario 
+INNER JOIN tbNivelUsuario N ON U.idNivelUsuario = N.idNivelUsuario WHERE U.loginUsuario 
+COLLATE Latin1_General_CS_AS = 'washington' COLLATE Latin1_General_CS_AS
+AND U.senhaUsuario COLLATE Latin1_General_CS_AS = 'was12345' COLLATE Latin1_General_CS_AS
+/*COLLATE Latin1_General_CS_AS  Serve para a pesquisa usar case sensitive*/

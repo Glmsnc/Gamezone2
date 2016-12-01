@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Gamezone.Model.CargoFuncionarioM">
+    <Position X="46.5" Y="7.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAEAAAAAAAAAAAAAAAAAAAAIAAAACA=</HashCode>
+      <FileName>Model\CargoFuncionarioM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Gamezone.Model.DistribuidoraM">
+    <Position X="15" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAJAAAACAA=</HashCode>
+      <FileName>Model\DistribuidoraM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Gamezone.Model.FuncionarioM">
+    <Position X="44.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAEAAAACAAAAAgAAAAAgAAAAIAAAEAAAABA=</HashCode>
+      <FileName>Model\FuncionarioM.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CargoFuncionarioM1" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Gamezone.Model.GeneroM">
+    <Position X="20.75" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgAgAAIAIAAAAAAAA=</HashCode>
+      <FileName>Model\GeneroM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Gamezone.Model.JogoM">
+    <Position X="18" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CgARAQgAAAAWBAACBgQAAAAAAAAQACAQAAAAEAIAEQE=</HashCode>
+      <FileName>Model\JogoM.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="DistribuidoraM1" />
+      <Property Name="GeneroM1" />
+      <Property Name="PlataformaM1" />
+      <Property Name="JogoDAO" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Gamezone.Model.NivelUsuarioM">
+    <Position X="41.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAACA=</HashCode>
+      <FileName>Model\NivelUsuarioM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Gamezone.Model.PlataformaM">
+    <Position X="20.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAIAAQAI=</HashCode>
+      <FileName>Model\PlataformaM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Gamezone.Model.UsuarioLogadoM">
+    <Position X="44.25" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAQAAAYEAAAGAAAEAAAAAAAAQIEAAAABAAAAIAA=</HashCode>
+      <FileName>Model\UsuarioLogadoM.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="FuncionarioM1" />
+      <Property Name="NivelUsuarioM" />
+      <Property Name="UsuarioM" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Gamezone.Model.UsuarioM">
+    <Position X="41.25" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAYEAAAGAAAEAAAAAAAAQAEAAAABAAAAAAA=</HashCode>
+      <FileName>Model\UsuarioM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Gamezone.DAO.CargoFuncionarioDAO">
+    <Position X="46.5" Y="10.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAEAABAACAAIAAABAAAEAAAAAAAAgAAAAAAAEAAAAAA=</HashCode>
+      <FileName>DAO\CargoFuncionarioDAO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CargoFuncionarioM" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Gamezone.DAO.ConexaoBdDAO">
+    <Position X="37" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DAO\ConexaoBdDAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Gamezone.DAO.DistribuidoraDAO">
+    <Position X="12.25" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAKAAQAAAACAAAABAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>DAO\DistribuidoraDAO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="DistribuidoraM" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Gamezone.DAO.FuncionarioDAO">
+    <Position X="41.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAQIAAAAAAAAAAgIAAAAAAAAAAAAQBAAAAA=</HashCode>
+      <FileName>DAO\FuncionarioDAO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="FuncionarioM" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Gamezone.DAO.GeneroDAO">
+    <Position X="23.75" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAEAIAAAAAAAAQAAAAAgAAAAAIAAA=</HashCode>
+      <FileName>DAO\GeneroDAO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="GeneroM" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Gamezone.DAO.JogoDAO">
+    <Position X="14.75" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAACAAAggAAAAAAAAAACAAAABAAAAAAAABAA=</HashCode>
+      <FileName>DAO\JogoDAO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="JogoM" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Gamezone.DAO.NivelUsuarioDAO">
+    <Position X="39.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAIAAAAAAAAAAAAIAAoAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>DAO\NivelUsuarioDAO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ConexaoBdDAO" />
+      <Property Name="NivelUsuarioM" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Gamezone.DAO.PlataformaDAO">
+    <Position X="23.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAMgAAQAAAACAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DAO\PlataformaDAO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="PlataformaM" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Gamezone.DAO.UsuarioDAO">
+    <Position X="38" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAI4AAAAAAAAAABAAAIAAAAgAAAAAABIAA=</HashCode>
+      <FileName>DAO\UsuarioDAO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ConexaoBdDAO" />
+      <Property Name="UsuarioM" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Gamezone.Controller.AtualizarFuncionario">
+    <Position X="41.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Controller\AtualizarFuncionario.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="FuncionarioDAO" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Gamezone.Controller.AtualizarUsuario">
+    <Position X="34" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controller\AtualizarUsuario.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="UsuarioDAO" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Gamezone.Controller.CadastroFuncionario">
+    <Position X="39.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Controller\CadastroFuncionario.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="FuncionarioDAO" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Gamezone.Controller.CadastroUsuario">
+    <Position X="34" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Controller\CadastroUsuario.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="UsuarioDAO" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Gamezone.Controller.UsuarioC">
+    <Position X="38" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACBAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Controller\UsuarioC.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="UsuarioDAO" />
+      <Property Name="UsuarioM" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Gamezone.Controller.AtualizarCargo">
+    <Position X="49.5" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controller\AtualizarCargo.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CargoFuncionarioDAO" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Gamezone.Controller.CadastroCargo">
+    <Position X="49.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controller\CadastroCargo.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CargoFuncionarioDAO" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

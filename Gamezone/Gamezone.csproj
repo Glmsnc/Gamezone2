@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{92135BD3-D821-47D6-AE23-7D845F8F0D37}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gamezone</RootNamespace>
+    <AssemblyName>Gamezone</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controller\AtualizarCargo.cs" />
+    <Compile Include="Controller\AtualizarFuncionario.cs" />
+    <Compile Include="Controller\AtualizarUsuario.cs" />
+    <Compile Include="Controller\CadastroCargo.cs" />
+    <Compile Include="Controller\CadastroFuncionario.cs" />
+    <Compile Include="Controller\CadastroUsuario.cs" />
+    <Compile Include="Controller\DistribuidoraC.cs" />
+    <Compile Include="Controller\EngineForm.cs" />
+    <Compile Include="Controller\GeneroC.cs" />
+    <Compile Include="Controller\PlataformaC.cs" />
+    <Compile Include="Controller\UsuarioC.cs" />
+    <Compile Include="DAO\CargoFuncionarioDAO.cs" />
+    <Compile Include="DAO\DistribuidoraDAO.cs" />
+    <Compile Include="DAO\GeneroDAO.cs" />
+    <Compile Include="DAO\PlataformaDAO.cs" />
+    <Compile Include="DAO\ConexaoBdDAO.cs" />
+    <Compile Include="DAO\FuncionarioDAO.cs" />
+    <Compile Include="DAO\JogoDAO.cs" />
+    <Compile Include="DAO\NivelUsuarioDAO.cs" />
+    <Compile Include="DAO\UsuarioDAO.cs" />
+    <Compile Include="Model\CargoFuncionarioM.cs" />
+    <Compile Include="Model\DistribuidoraM.cs" />
+    <Compile Include="Model\FuncionarioM.cs" />
+    <Compile Include="Model\GeneroM.cs" />
+    <Compile Include="Model\JogoM.cs" />
+    <Compile Include="Model\NivelUsuarioM.cs" />
+    <Compile Include="Model\PlataformaM.cs" />
+    <Compile Include="Model\UsuarioLogadoM.cs" />
+    <Compile Include="Model\UsuarioM.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Form3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Form3.Designer.cs">
+      <DependentUpon>Form3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Form4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Form4.Designer.cs">
+      <DependentUpon>Form4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Form5.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Form5.Designer.cs">
+      <DependentUpon>Form5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FrmAuxiliares.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmAuxiliares.Designer.cs">
+      <DependentUpon>FrmAuxiliares.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FrmCadastroCargo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmCadastroCargo.Designer.cs">
+      <DependentUpon>FrmCadastroCargo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FrmCadastroFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmCadastroFuncionario.Designer.cs">
+      <DependentUpon>FrmCadastroFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FrmCadastroUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmCadastroUsuario.Designer.cs">
+      <DependentUpon>FrmCadastroUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FrmEditar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmEditar.Designer.cs">
+      <DependentUpon>FrmEditar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FrmJogo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmJogo.Designer.cs">
+      <DependentUpon>FrmJogo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FrmMenuEstoque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmMenuEstoque.Designer.cs">
+      <DependentUpon>FrmMenuEstoque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FrmPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmPrincipal.Designer.cs">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FrmSplash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FrmSplash.Designer.cs">
+      <DependentUpon>FrmSplash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Form3.resx">
+      <DependentUpon>Form3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Form4.resx">
+      <DependentUpon>Form4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Form5.resx">
+      <DependentUpon>Form5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmAuxiliares.resx">
+      <DependentUpon>FrmAuxiliares.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmCadastroCargo.resx">
+      <DependentUpon>FrmCadastroCargo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmCadastroFuncionario.resx">
+      <DependentUpon>FrmCadastroFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmCadastroUsuario.resx">
+      <DependentUpon>FrmCadastroUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmEditar.resx">
+      <DependentUpon>FrmEditar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmJogo.resx">
+      <DependentUpon>FrmJogo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmMenuEstoque.resx">
+      <DependentUpon>FrmMenuEstoque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmPrincipal.resx">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FrmSplash.resx">
+      <DependentUpon>FrmSplash.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="View\ClassDiagram1.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\telaLogin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\imgSplash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\telaJogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\bg0.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\botao.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\botao0.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\logo-ico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BancoDados\bancoDados.txt" />
+    <Content Include="images\telaAuxiliares.png" />
+    <Content Include="images\telaJogo2.png" />
+    <Content Include="images\telaMenuEstoque.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
