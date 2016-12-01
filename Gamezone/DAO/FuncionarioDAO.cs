@@ -10,7 +10,9 @@ using System.Windows.Forms;
 namespace Gamezone.DAO
 {
     class FuncionarioDAO
-    {
+    {/// <summary>
+    /// 
+    /// </summary>
         ConexaoBdDAO conexaoBdDAO = new ConexaoBdDAO();
 
         public FuncionarioM FuncionarioM
