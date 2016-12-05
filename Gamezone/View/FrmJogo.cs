@@ -118,21 +118,21 @@ namespace Gamezone.View
             {
                 if (txtNome != null || txtDescricao != null || cbGenero != null || cbPlataforma != null || cbDistribuidora != null || cbClassificacao != null || txtPreco != null || txtTamanhoGB != null || txtQuantidade != null)
                 {
-                    j.nomeJogo = txtNome.Text;
-                    j.descricaoJogo = txtDescricao.Text;
+                    j.NomeJogo = txtNome.Text;
+                    j.DescricaoJogo = txtDescricao.Text;
                     int n = Convert.ToInt32(cbGenero.SelectedValue);
                     MessageBox.Show("N:" + n);
                     //j.plataformaM= Convert.ToInt32(cbPlataforma.SelectedValue);
-                    j.plataformaM = 1;
+                    j.PlataformaM = 1;
                     //j.distribuidoraM = Convert.ToInt32(cbDistribuidora.SelectedValue);
-                    j.distribuidoraM = 1;
+                    j.DistribuidoraM = 1;
                     //j.generoM= Convert.ToInt32(cbGenero.SelectedValue); 
-                    j.generoM = 1;
-                    j.valorJogo = float.Parse(txtPreco.Text);
+                    j.GeneroM = 1;
+                    j.ValorJogo = float.Parse(txtPreco.Text);
                     // j.classificacaoJogoM= Convert.ToInt32(cbClassificacao.SelectedValue);
-                    j.classificacaoJogoM = 2;
-                    j.tamanhoGBJogo = float.Parse(txtTamanhoGB.Text);
-                    j.qtdEstoqueJogo = int.Parse(txtQuantidade.Text);
+                    j.ClassificacaoJogoM = 2;
+                    j.TamanhoGBJogo = float.Parse(txtTamanhoGB.Text);
+                    j.QtdEstoqueJogo = int.Parse(txtQuantidade.Text);
 
                 
                     bool log = true;

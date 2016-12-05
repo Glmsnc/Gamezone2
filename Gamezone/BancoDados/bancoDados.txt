@@ -23,7 +23,7 @@ CREATE TABLE tbJogo(
 	,nomeJogo VARCHAR(70) NOT NULL
 	,descricaoJogo VARCHAR(255) NOT NULL
 	,idGenero INT FOREIGN KEY REFERENCES tbGenero(idGenero) NOT NULL
-	,idPlataforma INT FOREIGN KEY REFERENCES tbGenero(idGenero) NOT NULL
+	,idPlataforma INT FOREIGN KEY REFERENCES tbPlataforma(idPlataforma) NOT NULL
 	,idDistribuidora INT FOREIGN KEY REFERENCES tbDistribuidora(idDistribuidora) NOT NULL
 	,valorJogo SMALLMONEY NOT NULL
 	,ClassificacaoJogo INT NOT NULL
@@ -76,6 +76,8 @@ INSERT INTO tbUsuario(loginUsuario,senhaUsuario,idNivelUsuario,idFuncionario)
 VALUES('washblack','12345',2,1)
 
 SELECT * FROM tbNivelUsuario
+
+SELECT * FROM tbDistribuidora
 
 /*SELECT * FROM tbUsuario WHERE loginUsuario COLLATE Latin1_General_CS_AS = 'washington' COLLATE Latin1_General_CS_AS
 AND senhaUsuario COLLATE Latin1_General_CS_AS = 'was12345' COLLATE Latin1_General_CS_AS
