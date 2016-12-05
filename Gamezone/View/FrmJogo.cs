@@ -49,9 +49,20 @@ namespace Gamezone.View
                 cbDistribuidora.Items.Add(distribuidoraM.DescricaoDistribuidora);
             }
         }
+
+        public void limparCampos()
+        {
+            txtNome.Clear();
+            txtDescricao.Clear();
+            txtPreco.Clear();
+            txtQuantidade.Clear();
+            txtTamanhoGB.Clear();
+        }
         private void FrmJogo_Load(object sender, EventArgs e)
         {
             carregarAuxiliares();
+            JogoC jogoC = new JogoC();
+            dgJogo.DataSource = jogoC.jogosCadastrados();
         }
        
         private void btnCadastrar_Click(object sender, EventArgs e)
@@ -62,6 +73,7 @@ namespace Gamezone.View
             PlataformaM plataformaM = new PlataformaM();
             DistribuidoraM distribuidoraM = new DistribuidoraM();
             String mensagem="";
+            String resultado;
 
             try
             {
@@ -116,8 +128,8 @@ namespace Gamezone.View
                     jogoM.PlataformaM = plataformaM;
                     jogoM.DistribuidoraM = distribuidoraM;
                     jogoM.QtdEstoqueJogo = Convert.ToInt32(txtQuantidade.Text.Trim());
-                    jogoM.ValorJogo = (float)Convert.ToDouble(txtPreco.Text.Trim());
-                    jogoM.TamanhoGBJogo = (float)Convert.ToDouble(txtTamanhoGB.Text.Trim());    
+                    jogoM.ValorJogo = Convert.ToDouble(txtPreco.Text.Trim());
+                    jogoM.TamanhoGBJogo = Convert.ToDouble(txtTamanhoGB.Text.Trim());    
                 }
                 catch
                 {
@@ -125,8 +137,17 @@ namespace Gamezone.View
                     jogoM.ValorJogo = 0;
                     jogoM.TamanhoGBJogo = 0;
                 }
-                MessageBox.Show(jogoC.cadastrarJogo(jogoM));
-            }else
+
+                resultado = jogoC.cadastrarJogo(jogoM);
+                if (resultado.Equals("Jogo cadastrado com sucesso."))
+                {
+                    limparCampos();
+                }
+                MessageBox.Show(resultado);
+                dgJogo.DataSource = jogoC.jogosCadastrados();
+
+            }
+            else
             {
                 MessageBox.Show(mensagem);
             }       
@@ -145,7 +166,7 @@ namespace Gamezone.View
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             EngineForm engineForm = new EngineForm();
-            engineForm.abrirForm(this,new FrmJogo());
+            engineForm.abrirForm(this,new FrmMenuEstoque());
         }
 
         private void txtDescricao_TextChanged(object sender, EventArgs e)

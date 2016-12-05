@@ -13,14 +13,12 @@ namespace Gamezone.DAO
     class JogoDAO
     {
         ConexaoBdDAO conexaoBD = new ConexaoBdDAO();
-        //
+        
         public bool cadastrarJogo(JogoM jogoM)
         {
-            SqlConnection conn = new SqlConnection();
-            String sql = "INSERT INTO tbJogo(nomeJogo,descricaoJogo,idGenero,idPlataforma,idDistribuidora,"
-                +"valorJogo,ClassificacaoJogo,tamanhoGBJogo,qtdEstoqueJogo) "
-                + "VALUES(@nomeJogo,@descricaoJogo,@idGenero,@idPlataforma,@idDistribuidora,"
-                + "@valorJogo,@ClassificacaoJogo,@tamanhoGBJogo,@qtdEstoqueJogo)";
+            SqlConnection conn = conexaoBD.conexaoSQL();
+            String sql = "INSERT INTO tbJogo(nomeJogo,descricaoJogo,idGenero,idPlataforma,idDistribuidora,valorJogo,ClassificacaoJogo,tamanhoGBJogo,qtdEstoqueJogo) VALUES(@nomeJogo,@descricaoJogo,@idGenero,@idPlataforma,@idDistribuidora,@valorJogo,@ClassificacaoJogo,@tamanhoGBJogo,@qtdEstoqueJogo)";
+
 
             try
             {
@@ -37,10 +35,9 @@ namespace Gamezone.DAO
 
                 conn.Open();
                 comando.ExecuteNonQuery();
-
                 return true;
             }
-            catch
+            catch(Exception e)
             {
                 return false;
             }
@@ -131,6 +128,35 @@ namespace Gamezone.DAO
                 return dtTableJogo;
             }
             catch(Exception e)
+            {
+                return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public DataTable jogosCadastrados()
+        {
+            SqlConnection conn = conexaoBD.conexaoSQL();
+            String sql = "SELECT idJogo'cod. Jogo',nomeJogo'Nome',descricaoJogo'Descrição',idGenero'Gênero'"
+                        +",idPlataforma'Plataforma',idDistribuidora'Distribuidora',"
+                         + "valorJogo'Preço',ClassificacaoJogo'Faixa etária',tamanhoGBJogo'Tamanho(GB)'"
+                         +",qtdEstoqueJogo FROM tbJogo";
+            try
+            {
+                SqlCommand comando = new SqlCommand(sql, conn);
+
+                conn.Open();
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(comando);
+                DataTable dtTableJogo = new DataTable();
+
+                sqlDataAdapter.Fill(dtTableJogo);
+
+                return dtTableJogo;
+            }
+            catch (Exception e)
             {
                 return null;
             }

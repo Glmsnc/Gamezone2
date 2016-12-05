@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmJogo));
             this.dgJogo = new System.Windows.Forms.DataGridView();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.txtTamanhoGB = new System.Windows.Forms.TextBox();
@@ -100,7 +99,6 @@
             this.cbGenero.Name = "cbGenero";
             this.cbGenero.Size = new System.Drawing.Size(190, 27);
             this.cbGenero.TabIndex = 3;
-            this.cbGenero.SelectedIndexChanged += new System.EventHandler(this.cbGenero_SelectedIndexChanged);
             // 
             // cbPlataforma
             // 
@@ -197,7 +195,7 @@
             this.txtDescricao.Location = new System.Drawing.Point(306, 356);
             this.txtDescricao.Multiline = true;
             this.txtDescricao.Name = "txtDescricao";
-            this.txtDescricao.Size = new System.Drawing.Size(190, 36);
+            this.txtDescricao.Size = new System.Drawing.Size(240, 162);
             this.txtDescricao.TabIndex = 2;
             this.txtDescricao.TextChanged += new System.EventHandler(this.txtDescricao_TextChanged);
             // 
@@ -205,7 +203,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::Gamezone.Properties.Resources.telaJogo2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1184, 600);
             this.Controls.Add(this.btnVoltar);
@@ -227,7 +225,6 @@
             this.MaximizeBox = false;
             this.Name = "FrmJogo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "s";
             this.Load += new System.EventHandler(this.FrmJogo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgJogo)).EndInit();
             this.ResumeLayout(false);

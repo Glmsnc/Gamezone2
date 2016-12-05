@@ -14,9 +14,9 @@ namespace Gamezone.Model
         private GeneroM generoM;
         private PlataformaM plataformaM;
         private DistribuidoraM distribuidoraM;
-        private float valorJogo;
+        private double valorJogo;
         private int classificacaoJogoM;
-        private float tamanhoGBJogo;
+        private double tamanhoGBJogo;
         private int qtdEstoqueJogo;
 
         public int IdJogo
@@ -97,7 +97,7 @@ namespace Gamezone.Model
             }
         }
 
-        public float ValorJogo
+        public double ValorJogo
         {
             get
             {
@@ -123,7 +123,7 @@ namespace Gamezone.Model
             }
         }
 
-        public float TamanhoGBJogo
+        public double TamanhoGBJogo
         {
             get
             {

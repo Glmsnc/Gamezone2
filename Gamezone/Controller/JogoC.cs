@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Gamezone.Model;
 using Gamezone.DAO;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace Gamezone.Controller
 {
@@ -64,6 +66,14 @@ namespace Gamezone.Controller
             {
                 return "Falha ao cadastrar o jogo.";
             }
+        }
+
+
+
+        public DataTable jogosCadastrados()
+        {
+            JogoDAO jogoDAO = new JogoDAO();
+            return jogoDAO.jogosCadastrados();
         }
 
     }
