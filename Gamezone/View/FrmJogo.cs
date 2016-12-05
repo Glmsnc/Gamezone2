@@ -128,8 +128,8 @@ namespace Gamezone.View
                     jogoM.PlataformaM = plataformaM;
                     jogoM.DistribuidoraM = distribuidoraM;
                     jogoM.QtdEstoqueJogo = Convert.ToInt32(txtQuantidade.Text.Trim());
-                    jogoM.ValorJogo = Convert.ToDouble(txtPreco.Text.Trim());
-                    jogoM.TamanhoGBJogo = Convert.ToDouble(txtTamanhoGB.Text.Trim());    
+                    jogoM.ValorJogo = (float)Convert.ToDouble(txtPreco.Text.Trim());
+                    jogoM.TamanhoGBJogo = (float)Convert.ToDouble(txtTamanhoGB.Text.Trim());    
                 }
                 catch
                 {
@@ -187,6 +187,20 @@ namespace Gamezone.View
         private void cbClassificacao_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtPesquisa_KeyUp(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                JogoC jogoC = new JogoC();
+                dgJogo.DataSource = jogoC.pesquisarJogo(cbTipoPesquisa.SelectedItem.ToString(),txtPesquisa.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Selecione qual campo deseja pesquisar.");
+            }
+            
         }
     }
 }

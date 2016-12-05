@@ -42,6 +42,8 @@
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.txtDescricao = new System.Windows.Forms.TextBox();
+            this.cbTipoPesquisa = new System.Windows.Forms.ComboBox();
+            this.txtPesquisa = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgJogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -199,6 +201,31 @@
             this.txtDescricao.TabIndex = 2;
             this.txtDescricao.TextChanged += new System.EventHandler(this.txtDescricao_TextChanged);
             // 
+            // cbTipoPesquisa
+            // 
+            this.cbTipoPesquisa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTipoPesquisa.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTipoPesquisa.FormattingEnabled = true;
+            this.cbTipoPesquisa.Items.AddRange(new object[] {
+            "Cod. Jogo",
+            "Nome",
+            "Gênero",
+            "Plataforma",
+            "Distribuidora"});
+            this.cbTipoPesquisa.Location = new System.Drawing.Point(568, 190);
+            this.cbTipoPesquisa.Name = "cbTipoPesquisa";
+            this.cbTipoPesquisa.Size = new System.Drawing.Size(190, 27);
+            this.cbTipoPesquisa.TabIndex = 14;
+            // 
+            // txtPesquisa
+            // 
+            this.txtPesquisa.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPesquisa.Location = new System.Drawing.Point(846, 190);
+            this.txtPesquisa.Name = "txtPesquisa";
+            this.txtPesquisa.Size = new System.Drawing.Size(190, 26);
+            this.txtPesquisa.TabIndex = 15;
+            this.txtPesquisa.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPesquisa_KeyUp);
+            // 
             // FrmJogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -206,6 +233,8 @@
             this.BackgroundImage = global::Gamezone.Properties.Resources.telaJogo2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1184, 600);
+            this.Controls.Add(this.txtPesquisa);
+            this.Controls.Add(this.cbTipoPesquisa);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnEditar);
@@ -248,5 +277,7 @@
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.TextBox txtDescricao;
+        private System.Windows.Forms.ComboBox cbTipoPesquisa;
+        private System.Windows.Forms.TextBox txtPesquisa;
     }
 }

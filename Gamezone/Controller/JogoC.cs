@@ -76,5 +76,43 @@ namespace Gamezone.Controller
             return jogoDAO.jogosCadastrados();
         }
 
+        public DataTable pesquisarJogo(String campo, String pesquisa)
+        {
+            JogoDAO jogoDAO = new JogoDAO();
+
+            if (campo.Equals("Cod. Jogo"))
+            {
+                campo = "idJogo";
+            }
+
+            if (campo.Equals("Nome"))
+            {
+                campo = "nomeJogo";
+            }
+
+            if (campo.Equals("Gênero"))
+            {
+                campo = "idGenero";
+            }
+
+            if (campo.Equals("Plataforma"))
+            {
+                campo = "idPlataforma";
+            }
+
+            if (campo.Equals("Distribuidora"))
+            {
+                campo = "idDistribuidora";
+            }
+
+            if (pesquisa!="")
+            {
+                return jogoDAO.pesquisarJogo(campo, pesquisa);
+            }else
+            {
+                return jogoDAO.jogosCadastrados();
+            }
+            
+        }
     }
 }

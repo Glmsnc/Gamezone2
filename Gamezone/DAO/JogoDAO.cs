@@ -107,17 +107,17 @@ namespace Gamezone.DAO
             }
         }
 
-        public DataTable pesquisarJogo(String tipoPesquisa, String pesquisa)
+        public DataTable jogosCadastrados()
         {
             SqlConnection conn = conexaoBD.conexaoSQL();
-            String sql = "SELECT idJogo,nomeJogo,descricaoJogo,idGenero,idPlataforma,idDistribuidora,"
-                         +"valorJogo,ClassificacaoJogo,tamanhoGBJogo,qtdEstoqueJogo "
-                         +"FROM tbJogo WHERE @tipoPesquisa LIKE '@pesquisa%'";
+            String sql = "SELECT J.idJogo'cod. Jogo',J.nomeJogo'Nome',J.descricaoJogo'Descrição',G.descricaoGenero'Gênero'"
+                        + ",P.descricaoPlataforma'Plataforma',D.descricaoDistribuidora'Distribuidora',"
+                         + "format(J.valorJogo, 'C', 'pt-br')'Preço',J.ClassificacaoJogo'Faixa etária',J.tamanhoGBJogo'Tamanho(GB)'"
+                         + ",J.qtdEstoqueJogo FROM tbJogo J INNER JOIN tbGenero G ON J.idGenero = G.idGenero"
+                         + " INNER JOIN tbPlataforma P ON J.idPlataforma = P.idPlataforma INNER JOIN tbDistribuidora D ON J.idDistribuidora = D.idDistribuidora";
             try
             {
-                SqlCommand comando = new SqlCommand(sql,conn);
-                comando.Parameters.AddWithValue("@tipoPesquisa",tipoPesquisa);
-                comando.Parameters.AddWithValue("@pesquisa", pesquisa);
+                SqlCommand comando = new SqlCommand(sql, conn);
 
                 conn.Open();
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(comando);
@@ -127,7 +127,7 @@ namespace Gamezone.DAO
 
                 return dtTableJogo;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return null;
             }
@@ -137,16 +137,38 @@ namespace Gamezone.DAO
             }
         }
 
-        public DataTable jogosCadastrados()
+        public DataTable pesquisarJogo(String campo,String pesquisa)
         {
             SqlConnection conn = conexaoBD.conexaoSQL();
-            String sql = "SELECT idJogo'cod. Jogo',nomeJogo'Nome',descricaoJogo'Descrição',idGenero'Gênero'"
-                        +",idPlataforma'Plataforma',idDistribuidora'Distribuidora',"
-                         + "valorJogo'Preço',ClassificacaoJogo'Faixa etária',tamanhoGBJogo'Tamanho(GB)'"
-                         +",qtdEstoqueJogo FROM tbJogo";
             try
             {
-                SqlCommand comando = new SqlCommand(sql, conn);
+                
+                String sql;
+                SqlCommand comando = null;
+
+                if (campo.Equals("idJogo"))
+                {
+                    sql = "SELECT J.idJogo'cod. Jogo',J.nomeJogo'Nome',J.descricaoJogo'Descrição',G.descricaoGenero'Gênero'"
+                       + ",P.descricaoPlataforma'Plataforma',D.descricaoDistribuidora'Distribuidora',"
+                        + "format(J.valorJogo, 'C', 'pt-br')'Preço',J.ClassificacaoJogo'Faixa etária',J.tamanhoGBJogo'Tamanho(GB)'"
+                        + ",J.qtdEstoqueJogo FROM tbJogo J INNER JOIN tbGenero G ON J.idGenero = G.idGenero"
+                        + " INNER JOIN tbPlataforma P ON J.idPlataforma = P.idPlataforma INNER JOIN tbDistribuidora D" 
+                        +" ON J.idDistribuidora = D.idDistribuidora WHERE J.idJogo = @pesquisa";
+
+                    comando = new SqlCommand(sql, conn);
+                    comando.Parameters.AddWithValue("@pesquisa",pesquisa);
+                }
+                else
+                {
+                     sql = "SELECT idJogo'cod. Jogo',nomeJogo'Nome',descricaoJogo'Descrição',idGenero'Gênero'"
+                            + ",idPlataforma'Plataforma',idDistribuidora'Distribuidora',"
+                             + "format(valorJogo, 'C', 'pt-br')'Preço',ClassificacaoJogo'Faixa etária',tamanhoGBJogo'Tamanho(GB)'"
+                             + ",qtdEstoqueJogo FROM tbJogo WHERE @campo LIKE (@pesquisa)";
+
+                    comando = new SqlCommand(sql, conn);
+                    comando.Parameters.AddWithValue("@campo", campo);
+                    comando.Parameters.AddWithValue("@pesquisa", pesquisa+"%");
+                }
 
                 conn.Open();
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(comando);
