@@ -179,5 +179,10 @@ namespace Gamezone.View
                 MessageBox.Show("Selecione uma plataforma para editar!");
             }
         }
+
+        private void txtPesquisarPlataforma_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

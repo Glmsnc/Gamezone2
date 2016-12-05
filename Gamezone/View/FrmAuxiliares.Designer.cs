@@ -175,6 +175,7 @@
             this.txtPesquisarPlataforma.Name = "txtPesquisarPlataforma";
             this.txtPesquisarPlataforma.Size = new System.Drawing.Size(192, 26);
             this.txtPesquisarPlataforma.TabIndex = 14;
+            this.txtPesquisarPlataforma.TextChanged += new System.EventHandler(this.txtPesquisarPlataforma_TextChanged);
             this.txtPesquisarPlataforma.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPesquisarPlataforma_KeyUp);
             // 
             // txtPesquisarDistribuidora
