@@ -26,26 +26,39 @@ namespace Gamezone.DAO
             }
         }
 
-        //id
-        public List<GeneroM> selectGenero()
+        public List<GeneroM> generosCadastrados()
         {
             SqlConnection conn = conexaoBdDAO.conexaoSQL();
-            String sql = "select *from tbGenero";
-            SqlCommand comando = new SqlCommand(sql, conn);
-            conn.Open();
-            SqlDataReader dr = comando.ExecuteReader();
-            GeneroM nu = new GeneroM();
-            List<GeneroM> lnum = new List<GeneroM>();
-            while (dr.Read())
+            String sql = "SELECT idGenero,descricaoGenero FROM tbGenero";
+
+            try
             {
-                nu.IdGenero = Convert.ToInt32(dr["idGenero"]);
-                nu.DescricaoGenero = dr["descricaoGenero"].ToString();
-                lnum.Add(nu);
+                SqlCommand comando = new SqlCommand(sql, conn);
 
+                conn.Open();
+                SqlDataReader dr = comando.ExecuteReader();
+                List<GeneroM> listGenero = new List<GeneroM>();
+
+                while (dr.Read())
+                {
+                    GeneroM generoM = new GeneroM();
+                    generoM.IdGenero = Convert.ToInt32(dr["idGenero"]);
+                    generoM.DescricaoGenero = dr["descricaoGenero"].ToString();
+
+                    listGenero.Add(generoM);
+                }
+                return listGenero;
             }
-
-            return lnum;
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
+
         public DataTable selectGeneroT()
         {
             SqlConnection conn = conexaoBdDAO.conexaoSQL();

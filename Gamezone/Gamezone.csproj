@@ -55,6 +55,7 @@
     <Compile Include="Controller\DistribuidoraC.cs" />
     <Compile Include="Controller\EngineForm.cs" />
     <Compile Include="Controller\GeneroC.cs" />
+    <Compile Include="Controller\JogoC.cs" />
     <Compile Include="Controller\PlataformaC.cs" />
     <Compile Include="Controller\UsuarioC.cs" />
     <Compile Include="DAO\CargoFuncionarioDAO.cs" />
@@ -243,9 +244,6 @@
     <None Include="images\imgSplash.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="images\telaJogo.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="images\bg0.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -260,7 +258,7 @@
   <ItemGroup>
     <Content Include="BancoDados\bancoDados.txt" />
     <Content Include="images\telaAuxiliares.png" />
-    <Content Include="images\telaJogo2.png" />
+    <Content Include="images\telaJogo.png" />
     <Content Include="images\telaMenuEstoque.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

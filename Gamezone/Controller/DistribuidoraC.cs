@@ -49,6 +49,12 @@ namespace Gamezone.Controller
             return distribuidoraDAO.pesquisarDistribuidora(pesquisa);
         }
 
+        public List<DistribuidoraM> distribuidorasCadastradas()
+        {
+            DistribuidoraDAO distribuidoraDAO = new DistribuidoraDAO();
+            return distribuidoraDAO.distribuidorasCadastradas();
+        }
+
         public String excluirDistribuidora(int idDistribuidora)
         {
 

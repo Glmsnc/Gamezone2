@@ -48,6 +48,12 @@ namespace Gamezone.Controller
             return plataformaDao.pesquisarPlataforma(pesquisa);
         }
 
+        public List<PlataformaM> plataformasCadastradas()
+        {
+            PlataformaDAO plataformaDAO = new PlataformaDAO();
+            return plataformaDAO.plataformasCadastradas();
+        }
+
         public String excluirPlataforma(int idPlataforma)
         {
 

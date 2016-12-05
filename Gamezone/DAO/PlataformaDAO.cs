@@ -54,26 +54,39 @@ namespace Gamezone.DAO
             }
         }
 
-        //id
-        public List<PlataformaM> selectPlataforma()
+        public List<PlataformaM> plataformasCadastradas()
         {
             SqlConnection conn = conexaoBdDAO.conexaoSQL();
-            String sql = "select * from tbPlataforma";
-            SqlCommand comando = new SqlCommand(sql, conn);
-            conn.Open();
-            SqlDataReader dr = comando.ExecuteReader();
-            PlataformaM nu = new PlataformaM();
-            List<PlataformaM> lnum = new List<PlataformaM>();
-            while (dr.Read())
+            String sql = "SELECT idPlataforma,descricaoPlataforma FROM tbPlataforma";
+
+            try
             {
-                nu.IdPlataforma = Convert.ToInt32(dr["idPlataforma"]);
-                nu.DescricaoPlataforma = dr["descricaoPlataforma"].ToString();
-                lnum.Add(nu);
+                SqlCommand comando = new SqlCommand(sql,conn);
 
+                conn.Open();
+                SqlDataReader dr = comando.ExecuteReader();
+                List<PlataformaM> listPlataforma = new List<PlataformaM>();
+
+                while (dr.Read())
+                {
+                    PlataformaM plataformaM = new PlataformaM();
+                    plataformaM.IdPlataforma = Convert.ToInt32(dr["idPlataforma"]);
+                    plataformaM.DescricaoPlataforma = dr["descricaoPlataforma"].ToString();
+
+                    listPlataforma.Add(plataformaM);
+                }
+                return listPlataforma;
             }
-
-            return lnum;
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
+       
         public DataTable selectPlataformaT()
         {
             SqlConnection conn = conexaoBdDAO.conexaoSQL();
@@ -110,9 +123,6 @@ namespace Gamezone.DAO
             finally {
                 conn.Close();
             }
-
-                 
-            
         }
 
         public DataTable pesquisarPlataforma(String pesquisa)

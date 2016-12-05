@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmJogo));
             this.dgJogo = new System.Windows.Forms.DataGridView();
             this.txtNome = new System.Windows.Forms.TextBox();
-            this.txtDescricao = new System.Windows.Forms.TextBox();
             this.txtTamanhoGB = new System.Windows.Forms.TextBox();
             this.txtQuantidade = new System.Windows.Forms.TextBox();
             this.txtPreco = new System.Windows.Forms.TextBox();
@@ -42,6 +42,7 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
+            this.txtDescricao = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgJogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,7 +57,6 @@
             this.dgJogo.ReadOnly = true;
             this.dgJogo.Size = new System.Drawing.Size(616, 357);
             this.dgJogo.TabIndex = 0;
-            this.dgJogo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgJogo_CellContentClick);
             // 
             // txtNome
             // 
@@ -66,17 +66,6 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(190, 26);
             this.txtNome.TabIndex = 1;
-            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
-            // 
-            // txtDescricao
-            // 
-            this.txtDescricao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDescricao.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescricao.Location = new System.Drawing.Point(21, 246);
-            this.txtDescricao.Name = "txtDescricao";
-            this.txtDescricao.Size = new System.Drawing.Size(190, 26);
-            this.txtDescricao.TabIndex = 2;
-            this.txtDescricao.TextChanged += new System.EventHandler(this.txtDescricao_TextChanged);
             // 
             // txtTamanhoGB
             // 
@@ -85,7 +74,6 @@
             this.txtTamanhoGB.Name = "txtTamanhoGB";
             this.txtTamanhoGB.Size = new System.Drawing.Size(190, 26);
             this.txtTamanhoGB.TabIndex = 7;
-            this.txtTamanhoGB.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // txtQuantidade
             // 
@@ -94,7 +82,6 @@
             this.txtQuantidade.Name = "txtQuantidade";
             this.txtQuantidade.Size = new System.Drawing.Size(190, 26);
             this.txtQuantidade.TabIndex = 8;
-            this.txtQuantidade.TextChanged += new System.EventHandler(this.txtQuantidade_TextChanged);
             // 
             // txtPreco
             // 
@@ -106,42 +93,54 @@
             // 
             // cbGenero
             // 
+            this.cbGenero.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbGenero.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbGenero.FormattingEnabled = true;
-            this.cbGenero.Location = new System.Drawing.Point(21, 300);
+            this.cbGenero.Location = new System.Drawing.Point(21, 246);
             this.cbGenero.Name = "cbGenero";
             this.cbGenero.Size = new System.Drawing.Size(190, 27);
             this.cbGenero.TabIndex = 3;
+            this.cbGenero.SelectedIndexChanged += new System.EventHandler(this.cbGenero_SelectedIndexChanged);
             // 
             // cbPlataforma
             // 
             this.cbPlataforma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPlataforma.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbPlataforma.FormattingEnabled = true;
-            this.cbPlataforma.Location = new System.Drawing.Point(21, 356);
+            this.cbPlataforma.Location = new System.Drawing.Point(21, 302);
             this.cbPlataforma.Name = "cbPlataforma";
             this.cbPlataforma.Size = new System.Drawing.Size(190, 27);
             this.cbPlataforma.TabIndex = 4;
+            this.cbPlataforma.SelectedIndexChanged += new System.EventHandler(this.cbPlataforma_SelectedIndexChanged);
             // 
             // cbDistribuidora
             // 
             this.cbDistribuidora.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDistribuidora.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbDistribuidora.FormattingEnabled = true;
-            this.cbDistribuidora.Location = new System.Drawing.Point(21, 411);
+            this.cbDistribuidora.Location = new System.Drawing.Point(21, 357);
             this.cbDistribuidora.Name = "cbDistribuidora";
             this.cbDistribuidora.Size = new System.Drawing.Size(190, 27);
             this.cbDistribuidora.TabIndex = 5;
+            this.cbDistribuidora.SelectedIndexChanged += new System.EventHandler(this.cbDistribuidora_SelectedIndexChanged);
             // 
             // cbClassificacao
             // 
             this.cbClassificacao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbClassificacao.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbClassificacao.FormattingEnabled = true;
-            this.cbClassificacao.Location = new System.Drawing.Point(21, 467);
+            this.cbClassificacao.Items.AddRange(new object[] {
+            "Livre",
+            "10",
+            "12",
+            "14",
+            "16",
+            "18"});
+            this.cbClassificacao.Location = new System.Drawing.Point(21, 413);
             this.cbClassificacao.Name = "cbClassificacao";
             this.cbClassificacao.Size = new System.Drawing.Size(190, 27);
             this.cbClassificacao.TabIndex = 6;
+            this.cbClassificacao.SelectedIndexChanged += new System.EventHandler(this.cbClassificacao_SelectedIndexChanged);
             // 
             // btnCadastrar
             // 
@@ -189,12 +188,24 @@
             this.btnVoltar.Size = new System.Drawing.Size(122, 47);
             this.btnVoltar.TabIndex = 13;
             this.btnVoltar.UseVisualStyleBackColor = false;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
+            // 
+            // txtDescricao
+            // 
+            this.txtDescricao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtDescricao.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescricao.Location = new System.Drawing.Point(306, 356);
+            this.txtDescricao.Multiline = true;
+            this.txtDescricao.Name = "txtDescricao";
+            this.txtDescricao.Size = new System.Drawing.Size(190, 36);
+            this.txtDescricao.TabIndex = 2;
+            this.txtDescricao.TextChanged += new System.EventHandler(this.txtDescricao_TextChanged);
             // 
             // FrmJogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Gamezone.Properties.Resources.telaJogo2;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1184, 600);
             this.Controls.Add(this.btnVoltar);
@@ -216,7 +227,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmJogo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmJogo";
+            this.Text = "s";
             this.Load += new System.EventHandler(this.FrmJogo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgJogo)).EndInit();
             this.ResumeLayout(false);
@@ -228,7 +239,6 @@
 
         private System.Windows.Forms.DataGridView dgJogo;
         private System.Windows.Forms.TextBox txtNome;
-        private System.Windows.Forms.TextBox txtDescricao;
         private System.Windows.Forms.TextBox txtTamanhoGB;
         private System.Windows.Forms.TextBox txtQuantidade;
         private System.Windows.Forms.TextBox txtPreco;
@@ -240,5 +250,6 @@
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnVoltar;
+        private System.Windows.Forms.TextBox txtDescricao;
     }
 }

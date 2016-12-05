@@ -3,149 +3,150 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Gamezone.Model;
 
+namespace Gamezone.Model
 {
     class JogoM
     {
-    private int idJogo;
-    private String nomeJogo;
-    private String descricaoJogo;
-    private GeneroM generoM;
-    private PlataformaM plataformaM;
-    private DistribuidoraM distribuidoraM;
-    private float valorJogo;
-    private int classificacaoJogoM;
-    private float tamanhoGBJogo;
-    private int qtdEstoqueJogo;
+        private int idJogo;
+        private String nomeJogo;
+        private String descricaoJogo;
+        private GeneroM generoM;
+        private PlataformaM plataformaM;
+        private DistribuidoraM distribuidoraM;
+        private float valorJogo;
+        private int classificacaoJogoM;
+        private float tamanhoGBJogo;
+        private int qtdEstoqueJogo;
 
-    public int IdJogo
-    {
-        get
+        public int IdJogo
         {
-            return idJogo;
+            get
+            {
+                return idJogo;
+            }
+
+            set
+            {
+                idJogo = value;
+            }
         }
 
-        set
+        public string NomeJogo
         {
-            idJogo = value;
-        }
-    }
+            get
+            {
+                return nomeJogo;
+            }
 
-    public string NomeJogo
-    {
-        get
-        {
-            return nomeJogo;
-        }
-
-        set
-        {
-            nomeJogo = value;
-        }
-    }
-
-    public string DescricaoJogo
-    {
-        get
-        {
-            return descricaoJogo;
+            set
+            {
+                nomeJogo = value;
+            }
         }
 
-        set
+        public string DescricaoJogo
         {
-            descricaoJogo = value;
-        }
-    }
+            get
+            {
+                return descricaoJogo;
+            }
 
-    internal GeneroM GeneroM
-    {
-        get
-        {
-            return generoM;
-        }
-
-        set
-        {
-            generoM = value;
-        }
-    }
-
-    internal PlataformaM PlataformaM
-    {
-        get
-        {
-            return plataformaM;
+            set
+            {
+                descricaoJogo = value;
+            }
         }
 
-        set
+        internal GeneroM GeneroM
         {
-            plataformaM = value;
-        }
-    }
+            get
+            {
+                return generoM;
+            }
 
-    internal DistribuidoraM DistribuidoraM
-    {
-        get
-        {
-            return distribuidoraM;
-        }
-
-        set
-        {
-            distribuidoraM = value;
-        }
-    }
-
-    public float ValorJogo
-    {
-        get
-        {
-            return valorJogo;
+            set
+            {
+                generoM = value;
+            }
         }
 
-        set
+        internal PlataformaM PlataformaM
         {
-            valorJogo = value;
-        }
-    }
+            get
+            {
+                return plataformaM;
+            }
 
-    public int ClassificacaoJogoM
-    {
-        get
-        {
-            return classificacaoJogoM;
-        }
-
-        set
-        {
-            classificacaoJogoM = value;
-        }
-    }
-
-    public float TamanhoGBJogo
-    {
-        get
-        {
-            return tamanhoGBJogo;
+            set
+            {
+                plataformaM = value;
+            }
         }
 
-        set
+        internal DistribuidoraM DistribuidoraM
         {
-            tamanhoGBJogo = value;
-        }
-    }
+            get
+            {
+                return distribuidoraM;
+            }
 
-    public int QtdEstoqueJogo
-    {
-        get
-        {
-            return qtdEstoqueJogo;
+            set
+            {
+                distribuidoraM = value;
+            }
         }
 
-        set
+        public float ValorJogo
         {
-            qtdEstoqueJogo = value;
+            get
+            {
+                return valorJogo;
+            }
+
+            set
+            {
+                valorJogo = value;
+            }
+        }
+
+        public int ClassificacaoJogoM
+        {
+            get
+            {
+                return classificacaoJogoM;
+            }
+
+            set
+            {
+                classificacaoJogoM = value;
+            }
+        }
+
+        public float TamanhoGBJogo
+        {
+            get
+            {
+                return tamanhoGBJogo;
+            }
+
+            set
+            {
+                tamanhoGBJogo = value;
+            }
+        }
+
+        public int QtdEstoqueJogo
+        {
+            get
+            {
+                return qtdEstoqueJogo;
+            }
+
+            set
+            {
+                qtdEstoqueJogo = value;
+            }
         }
     }
 }

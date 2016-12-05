@@ -14,25 +14,7 @@ namespace Gamezone.DAO
     {
         ConexaoBdDAO conexaoBdDAO = new ConexaoBdDAO();
 
-        public List<DistribuidoraM> selectDistribuidora()
-        {
-            SqlConnection conn = conexaoBdDAO.conexaoSQL();
-            String sql = "select * from tbDistribuidora";
-            SqlCommand comando = new SqlCommand(sql, conn);
-            conn.Open();
-            SqlDataReader dr = comando.ExecuteReader();
-            DistribuidoraM nu = new DistribuidoraM();
-            List<DistribuidoraM> lnum = new List<DistribuidoraM>();
-            while (dr.Read())
-            {
-                nu.IdDistribuidora = Convert.ToInt32(dr["idDistribuidora"]);
-                nu.DescricaoDistribuidora = dr["descricaoDistribuidora"].ToString();
-                lnum.Add(nu);
-
-            }
-
-            return lnum;
-        }
+      
         public DataTable selectDistribuidoraT()
         {
             SqlConnection conn = conexaoBdDAO.conexaoSQL();
@@ -159,6 +141,39 @@ namespace Gamezone.DAO
                 return dtTableJogo;
             }
             catch (Exception e)
+            {
+                return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public List<DistribuidoraM> distribuidorasCadastradas()
+        {
+            SqlConnection conn = conexaoBdDAO.conexaoSQL();
+            String sql = "SELECT idDistribuidora,descricaoDistribuidora FROM tbDistribuidora";
+
+            try
+            {
+                SqlCommand comando = new SqlCommand(sql, conn);
+
+                conn.Open();
+                SqlDataReader dr = comando.ExecuteReader();
+                List<DistribuidoraM> listDistribuidora = new List<DistribuidoraM>();
+
+                while (dr.Read())
+                {
+                    DistribuidoraM distribuidoraM = new DistribuidoraM();
+                    distribuidoraM.IdDistribuidora = Convert.ToInt32(dr["idDistribuidora"]);
+                    distribuidoraM.DescricaoDistribuidora = dr["descricaoDistribuidora"].ToString();
+
+                    listDistribuidora.Add(distribuidoraM);
+                }
+                return listDistribuidora;
+            }
+            catch
             {
                 return null;
             }

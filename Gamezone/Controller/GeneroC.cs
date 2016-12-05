@@ -47,6 +47,12 @@ namespace Gamezone.Controller
             return generoDAO.pesquisarGenero(pesquisa);
         }
 
+        public List<GeneroM> generosCadastrados()
+        {
+            GeneroDAO generoDAO = new GeneroDAO();
+            return generoDAO.generosCadastrados();
+        }
+
         public String excluirGenero(int idGenero)
         {
 
