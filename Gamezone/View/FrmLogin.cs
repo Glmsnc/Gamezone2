@@ -32,7 +32,7 @@ namespace Gamezone.View
             switch(login)
             {
                 case 0: // Falha no login
-                    MessageBox.Show("Usuário ou senha inválida");
+                    MessageBox.Show("Usuário ou senha inválido.");
                     break;
                 case 1: // Nível de acesso Administrador
                     engineForm.abrirForm(this, new FrmMenuEstoque());

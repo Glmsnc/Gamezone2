@@ -87,8 +87,7 @@ namespace Gamezone.Controller
             else {
                 return "Digite pelo menos 2 caracteres para a plataforma";
             }
-            
-
+          
         }
        
     }

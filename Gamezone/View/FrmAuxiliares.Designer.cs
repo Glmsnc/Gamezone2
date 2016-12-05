@@ -44,6 +44,10 @@
             this.txtPesquisarGenero = new System.Windows.Forms.TextBox();
             this.btnEditPlataforma = new System.Windows.Forms.Button();
             this.btnExcluirPlataforma = new System.Windows.Forms.Button();
+            this.btnEditGenero = new System.Windows.Forms.Button();
+            this.tbnExcluirGenero = new System.Windows.Forms.Button();
+            this.btnEditDistribuidora = new System.Windows.Forms.Button();
+            this.btnExcluirDistribuidora = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgPlataforma)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgGenero)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgDistribuidora)).BeginInit();
@@ -196,6 +200,7 @@
             this.txtPesquisarGenero.Name = "txtPesquisarGenero";
             this.txtPesquisarGenero.Size = new System.Drawing.Size(192, 26);
             this.txtPesquisarGenero.TabIndex = 16;
+            this.txtPesquisarGenero.TextChanged += new System.EventHandler(this.txtPesquisarGenero_TextChanged);
             this.txtPesquisarGenero.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPesquisarGenero_KeyUp);
             // 
             // btnEditPlataforma
@@ -222,6 +227,54 @@
             this.btnExcluirPlataforma.UseVisualStyleBackColor = false;
             this.btnExcluirPlataforma.Click += new System.EventHandler(this.btnExcluirPlataforma_Click);
             // 
+            // btnEditGenero
+            // 
+            this.btnEditGenero.BackColor = System.Drawing.Color.Transparent;
+            this.btnEditGenero.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEditGenero.ForeColor = System.Drawing.Color.Transparent;
+            this.btnEditGenero.Location = new System.Drawing.Point(703, 211);
+            this.btnEditGenero.Name = "btnEditGenero";
+            this.btnEditGenero.Size = new System.Drawing.Size(79, 30);
+            this.btnEditGenero.TabIndex = 19;
+            this.btnEditGenero.UseVisualStyleBackColor = false;
+            this.btnEditGenero.Click += new System.EventHandler(this.btnEditGenero_Click);
+            // 
+            // tbnExcluirGenero
+            // 
+            this.tbnExcluirGenero.BackColor = System.Drawing.Color.Transparent;
+            this.tbnExcluirGenero.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.tbnExcluirGenero.ForeColor = System.Drawing.Color.Transparent;
+            this.tbnExcluirGenero.Location = new System.Drawing.Point(784, 211);
+            this.tbnExcluirGenero.Name = "tbnExcluirGenero";
+            this.tbnExcluirGenero.Size = new System.Drawing.Size(63, 30);
+            this.tbnExcluirGenero.TabIndex = 20;
+            this.tbnExcluirGenero.UseVisualStyleBackColor = false;
+            this.tbnExcluirGenero.Click += new System.EventHandler(this.tbnExcluirGenero_Click);
+            // 
+            // btnEditDistribuidora
+            // 
+            this.btnEditDistribuidora.BackColor = System.Drawing.Color.Transparent;
+            this.btnEditDistribuidora.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEditDistribuidora.ForeColor = System.Drawing.Color.Transparent;
+            this.btnEditDistribuidora.Location = new System.Drawing.Point(118, 455);
+            this.btnEditDistribuidora.Name = "btnEditDistribuidora";
+            this.btnEditDistribuidora.Size = new System.Drawing.Size(79, 30);
+            this.btnEditDistribuidora.TabIndex = 21;
+            this.btnEditDistribuidora.UseVisualStyleBackColor = false;
+            this.btnEditDistribuidora.Click += new System.EventHandler(this.btnEditDistribuidora_Click);
+            // 
+            // btnExcluirDistribuidora
+            // 
+            this.btnExcluirDistribuidora.BackColor = System.Drawing.Color.Transparent;
+            this.btnExcluirDistribuidora.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnExcluirDistribuidora.ForeColor = System.Drawing.Color.Transparent;
+            this.btnExcluirDistribuidora.Location = new System.Drawing.Point(202, 455);
+            this.btnExcluirDistribuidora.Name = "btnExcluirDistribuidora";
+            this.btnExcluirDistribuidora.Size = new System.Drawing.Size(63, 30);
+            this.btnExcluirDistribuidora.TabIndex = 22;
+            this.btnExcluirDistribuidora.UseVisualStyleBackColor = false;
+            this.btnExcluirDistribuidora.Click += new System.EventHandler(this.btnExcluirDistribuidora_Click);
+            // 
             // FrmAuxiliares
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -229,6 +282,10 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1184, 600);
+            this.Controls.Add(this.btnExcluirDistribuidora);
+            this.Controls.Add(this.btnEditDistribuidora);
+            this.Controls.Add(this.tbnExcluirGenero);
+            this.Controls.Add(this.btnEditGenero);
             this.Controls.Add(this.btnExcluirPlataforma);
             this.Controls.Add(this.btnEditPlataforma);
             this.Controls.Add(this.txtPesquisarGenero);
@@ -276,5 +333,9 @@
         private System.Windows.Forms.TextBox txtPesquisarGenero;
         private System.Windows.Forms.Button btnEditPlataforma;
         private System.Windows.Forms.Button btnExcluirPlataforma;
+        private System.Windows.Forms.Button btnEditGenero;
+        private System.Windows.Forms.Button tbnExcluirGenero;
+        private System.Windows.Forms.Button btnEditDistribuidora;
+        private System.Windows.Forms.Button btnExcluirDistribuidora;
     }
 }

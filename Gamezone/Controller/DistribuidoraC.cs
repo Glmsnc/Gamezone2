@@ -48,5 +48,48 @@ namespace Gamezone.Controller
             DistribuidoraDAO distribuidoraDAO = new DistribuidoraDAO();
             return distribuidoraDAO.pesquisarDistribuidora(pesquisa);
         }
+
+        public String excluirDistribuidora(int idDistribuidora)
+        {
+
+            DistribuidoraDAO distribuidoraDAO = new DistribuidoraDAO();
+            bool resultado;
+
+            resultado = distribuidoraDAO.deletDistribuidora(idDistribuidora);
+
+            if (resultado == true)
+            {
+                return "Distribuidora excluída com sucesso.";
+            }
+            else
+            {
+                return "Falha ao excluir a distribuidora.";
+            }
+        }
+        public String editarDistribuidora(DistribuidoraM distribuidoraM)
+        {
+
+            DistribuidoraDAO distribuidoraDAO = new DistribuidoraDAO();
+
+            bool resultado;
+            if (distribuidoraM.DescricaoDistribuidora.Length >= 2)
+            {
+                resultado = distribuidoraDAO.alterarDistribuidora(distribuidoraM);
+
+                if (resultado == true)
+                {
+                    return "Distribuidora editada com sucesso.";
+                }
+                else
+                {
+                    return "Falha ao editar a distribuidora.";
+                }
+            }
+            else
+            {
+                return "Digite pelo menos 2 caracteres para a distribuidora";
+            }
+
+        }
     }
 }

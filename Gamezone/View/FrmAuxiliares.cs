@@ -134,55 +134,207 @@ namespace Gamezone.View
 
         private void btnExcluirPlataforma_Click(object sender, EventArgs e)
         {
-            if (dgPlataforma.CurrentRow.Cells[0] != null)
+            try
             {
-                DialogResult dialogo = MessageBox.Show("Deseja excluir essa plataforma?", "Confirmar exclusão", MessageBoxButtons.YesNo);
-                if (dialogo == DialogResult.Yes)
+                if (dgPlataforma.CurrentRow.Cells[0] != null)
                 {
-                    PlataformaC plataformaC = new PlataformaC();
-                    plataformaC.excluirPlataforma(Convert.ToInt32(dgPlataforma.CurrentRow.Cells[0].Value));
+                    DialogResult dialogo = MessageBox.Show("Deseja excluir essa plataforma?", "Confirmar exclusão", MessageBoxButtons.YesNo);
+                    if (dialogo == DialogResult.Yes)
+                    {
+                        PlataformaC plataformaC = new PlataformaC();
+                        plataformaC.excluirPlataforma(Convert.ToInt32(dgPlataforma.CurrentRow.Cells[0].Value));
 
-                    dgPlataforma.DataSource = plataformaC.selecPlataforma();
-                    dgPlataforma.Columns[0].Visible = false;
+                        dgPlataforma.DataSource = plataformaC.selecPlataforma();
+                        dgPlataforma.Columns[0].Visible = false;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Selecione uma plataforma para excluir!");
                 }
             }
-            else {
+            catch {
                 MessageBox.Show("Selecione uma plataforma para excluir!");
             }
+            
         }
 
         private void btnEditPlataforma_Click(object sender, EventArgs e)
         {
-            if (dgPlataforma.CurrentRow.Cells[0] != null)
+            try
             {
-                DialogResult dialogo = MessageBox.Show("Deseja Editar essa plataforma?", "Confirmar Editação", MessageBoxButtons.YesNo);
-                if (dialogo == DialogResult.Yes)
+                if (dgPlataforma.CurrentRow.Cells[0] != null)
                 {
-                    PlataformaC plataformaC = new PlataformaC();
-                    PlataformaM plataformaM = new PlataformaM();
-                    String resultado;
+                    DialogResult dialogo = MessageBox.Show("Deseja Editar essa plataforma?", "Confirmar Editação", MessageBoxButtons.YesNo);
+                    if (dialogo == DialogResult.Yes)
+                    {
+                        PlataformaC plataformaC = new PlataformaC();
+                        PlataformaM plataformaM = new PlataformaM();
+                        String resultado;
 
-                    plataformaM.IdPlataforma = Convert.ToInt32(dgPlataforma.CurrentRow.Cells[0].Value);
-                    plataformaM.DescricaoPlataforma = txtPlataforma.Text;
+                        plataformaM.IdPlataforma = Convert.ToInt32(dgPlataforma.CurrentRow.Cells[0].Value);
+                        plataformaM.DescricaoPlataforma = txtPlataforma.Text.Trim();
 
-                    resultado = plataformaC.editarPlataforma(plataformaM);
-                    MessageBox.Show(resultado);
-                    if (resultado.Equals("Plataforma Editada com sucesso.")) {
-                        txtPlataforma.Clear(); }
+                        resultado = plataformaC.editarPlataforma(plataformaM);
+                        MessageBox.Show(resultado);
+                        if (resultado.Equals("Plataforma Editada com sucesso."))
+                        {
+                            txtPlataforma.Clear();
+                        }
 
-                    dgPlataforma.DataSource = plataformaC.selecPlataforma();
-                    dgPlataforma.Columns[0].Visible = false;
+                        dgPlataforma.DataSource = plataformaC.selecPlataforma();
+                        dgPlataforma.Columns[0].Visible = false;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Selecione uma plataforma para editar!");
                 }
             }
-            else
-            {
+            catch {
                 MessageBox.Show("Selecione uma plataforma para editar!");
             }
+            
         }
 
         private void txtPesquisarPlataforma_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtPesquisarGenero_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEditGenero_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgGenero.CurrentRow.Cells[0] != null)
+                {
+                    DialogResult dialogo = MessageBox.Show("Deseja Editar esse gênero?", "Confirmar Editação", MessageBoxButtons.YesNo);
+                    if (dialogo == DialogResult.Yes)
+                    {
+                        GeneroC generoC = new GeneroC();
+                        GeneroM generoM = new GeneroM();
+                        String resultado;
+
+                        generoM.IdGenero = Convert.ToInt32(dgGenero.CurrentRow.Cells[0].Value);
+                        generoM.DescricaoGenero = txtGenero.Text.Trim();
+
+                        resultado = generoC.editarGenero(generoM);
+                        MessageBox.Show(resultado);
+                        if (resultado.Equals("Gênero Editada com sucesso."))
+                        {
+                            txtGenero.Clear();
+                        }
+
+                        dgGenero.DataSource = generoC.selectGenero();
+                        dgGenero.Columns[0].Visible = false;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Selecione um gênero para editar!");
+                }
+            }
+            catch {
+                MessageBox.Show("Selecione um gênero para editar!");
+            }
+            
+        }
+
+        private void tbnExcluirGenero_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgGenero.CurrentRow.Cells[0] != null)
+                {
+                    DialogResult dialogo = MessageBox.Show("Deseja excluir esse gênero?", "Confirmar exclusão", MessageBoxButtons.YesNo);
+                    if (dialogo == DialogResult.Yes)
+                    {
+                        GeneroC generoC = new GeneroC();
+                        generoC.excluirGenero(Convert.ToInt32(dgGenero.CurrentRow.Cells[0].Value));
+
+                        dgGenero.DataSource = generoC.selectGenero();
+                        dgGenero.Columns[0].Visible = false;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Selecione um gênero para excluir!");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Selecione um gênero para excluir!");
+            }
+        }
+
+        private void btnEditDistribuidora_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgDistribuidora.CurrentRow.Cells[0] != null)
+                {
+                    DialogResult dialogo = MessageBox.Show("Deseja editar essa distribuidora?", "Confirmar Editação", MessageBoxButtons.YesNo);
+                    if (dialogo == DialogResult.Yes)
+                    {
+                        DistribuidoraC distribuidoraC = new DistribuidoraC();
+                        DistribuidoraM distribuidoraM = new DistribuidoraM();
+                        String resultado;
+
+                        distribuidoraM.IdDistribuidora = Convert.ToInt32(dgDistribuidora.CurrentRow.Cells[0].Value);
+                        distribuidoraM.DescricaoDistribuidora = txtDistribuidora.Text.Trim();
+
+                        resultado = distribuidoraC.editarDistribuidora(distribuidoraM);
+                        MessageBox.Show(resultado);
+                        if (resultado.Equals("Distribuidora editada com sucesso."))
+                        {
+                            txtDistribuidora.Clear();
+                        }
+
+                        dgDistribuidora.DataSource = distribuidoraC.selecDistribuidora();
+                        dgDistribuidora.Columns[0].Visible = false;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Selecione uma distribuidora para editar!");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Selecione uma distribuidora para editar!");
+            }
+        }
+
+        private void btnExcluirDistribuidora_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgDistribuidora.CurrentRow.Cells[0] != null)
+                {
+                    DialogResult dialogo = MessageBox.Show("Deseja excluir essa distribuidora?", "Confirmar exclusão", MessageBoxButtons.YesNo);
+                    if (dialogo == DialogResult.Yes)
+                    {
+                        DistribuidoraC distribuidoraC = new DistribuidoraC();
+                        distribuidoraC.excluirDistribuidora(Convert.ToInt32(dgDistribuidora.CurrentRow.Cells[0].Value));
+
+                        dgDistribuidora.DataSource = distribuidoraC.selecDistribuidora();
+                        dgDistribuidora.Columns[0].Visible = false;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Selecione uma distribuidora para excluir!");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Selecione uma distribuidora para excluir!");
+            }
         }
     }
 }

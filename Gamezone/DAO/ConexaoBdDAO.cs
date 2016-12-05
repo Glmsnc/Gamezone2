@@ -14,7 +14,7 @@ namespace Gamezone.DAO
 
             try
             {
-                return new SqlConnection(@"Data Source=GLM-PC;Initial Catalog=bdLoja;Integrated Security=True");
+                return new SqlConnection(@"Data Source=DESKTOP-0E4017D\local;Initial Catalog=bdLoja;Integrated Security=True");
             }
             catch(Exception e)
             {

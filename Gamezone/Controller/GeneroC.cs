@@ -46,5 +46,48 @@ namespace Gamezone.Controller
             GeneroDAO generoDAO = new GeneroDAO();
             return generoDAO.pesquisarGenero(pesquisa);
         }
+
+        public String excluirGenero(int idGenero)
+        {
+
+            GeneroDAO generoDAO = new GeneroDAO();
+            bool resultado;
+
+            resultado = generoDAO.deletGenero(idGenero);
+
+            if (resultado == true)
+            {
+                return "Gênero excluído com sucesso.";
+            }
+            else
+            {
+                return "Falha ao excluir o gênero.";
+            }
+        }
+        public String editarGenero(GeneroM generoM)
+        {
+
+            GeneroDAO generoDAO = new GeneroDAO();
+
+            bool resultado;
+            if (generoM.DescricaoGenero.Length >= 2)
+            {
+                resultado = generoDAO.alterarGenero(generoM);
+
+                if (resultado == true)
+                {
+                    return "Gênero editado com sucesso.";
+                }
+                else
+                {
+                    return "Falha ao editar o gênero.";
+                }
+            }
+            else
+            {
+                return "Digite pelo menos 2 caracteres para a plataforma";
+            }
+
+        }
     }
 }

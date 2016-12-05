@@ -62,15 +62,28 @@ namespace Gamezone.DAO
 
         }
 
-        public void deletGenero(int idGenero)
+        public bool deletGenero(int idGenero)
         {
             SqlConnection conn = conexaoBdDAO.conexaoSQL();
             String sql = "delete from tbGenero where idGenero = @id";
-            SqlCommand comando = new SqlCommand(sql, conn);
-            conn.Open();
-            comando.Parameters.AddWithValue("@id", idGenero);
-            comando.ExecuteNonQuery();
-            conn.Close();
+
+            try
+            {
+                SqlCommand comando = new SqlCommand(sql, conn);
+                conn.Open();
+                comando.Parameters.AddWithValue("@id", idGenero);
+                comando.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (SqlException e)
+            {
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
         
         public bool cadastroGenero(GeneroM generoM)
@@ -140,5 +153,33 @@ namespace Gamezone.DAO
                 conn.Close();
             }
         }
+
+        public bool alterarGenero(GeneroM generoM)
+        {
+            ConexaoBdDAO conexaoBdDAO = new ConexaoBdDAO();
+            SqlConnection conn = conexaoBdDAO.conexaoSQL();
+
+            String sql = "UPDATE tbGenero SET descricaoGenero = @Desc where idGenero = @idGenero";
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@Desc", generoM.DescricaoGenero);
+                cmd.Parameters.AddWithValue("@idGenero", generoM.IdGenero);
+                conn.Open();
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
     }
 }

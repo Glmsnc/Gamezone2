@@ -14,19 +14,6 @@ namespace Gamezone.DAO
     {
         ConexaoBdDAO conexaoBdDAO = new ConexaoBdDAO();
 
-        internal DistribuidoraM DistribuidoraM
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        //id
         public List<DistribuidoraM> selectDistribuidora()
         {
             SqlConnection conn = conexaoBdDAO.conexaoSQL();
@@ -62,16 +49,55 @@ namespace Gamezone.DAO
 
         }
 
-        public void deletDistribuidora(int idDistribuidora)
+        public bool deletDistribuidora(int idDistribuidora)
         {
-            //Editar depois
+            
             SqlConnection conn = conexaoBdDAO.conexaoSQL();
             String sql = "delete from tbDistribuidora where idDistribuidora = @id";
-            SqlCommand comando = new SqlCommand(sql, conn);
-            conn.Open();
-            comando.Parameters.AddWithValue("@id", idDistribuidora);
-            comando.ExecuteNonQuery();
-            conn.Close();
+            try
+            {
+                SqlCommand comando = new SqlCommand(sql, conn);
+                conn.Open();
+                comando.Parameters.AddWithValue("@id", idDistribuidora);
+                comando.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (SqlException e)
+            {
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public bool alterarDistribuidora(DistribuidoraM distribuidoraM)
+        {
+            ConexaoBdDAO conexaoBdDAO = new ConexaoBdDAO();
+            SqlConnection conn = conexaoBdDAO.conexaoSQL();
+
+            String sql = "UPDATE tbDistribuidora SET descricaoDistribuidora = @Desc where idDistribuidora = @idDistribuidora";
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@Desc", distribuidoraM.DescricaoDistribuidora);
+                cmd.Parameters.AddWithValue("@idDistribuidora", distribuidoraM.IdDistribuidora);
+                conn.Open();
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
         public bool cadastroDistribuidora(DistribuidoraM distribuidoraM)
         {
